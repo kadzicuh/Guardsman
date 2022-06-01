@@ -14,7 +14,7 @@ typedef std::wstring String;
 
 namespace Utils
 {
-    void readme(String file);
+    void readme(String path);
 }
 
 #endif // !UTILS_H_
