@@ -57,3 +57,11 @@ String Utils::GetFileExt(String file)
 {
     return file.substr(file.find_last_of(L".") + 1);
 }
+
+BOOL Utils::Contains(const std::vector<String>& v, String ext)
+{
+    if (std::find(v.begin(), v.end(), ext) != v.end())
+        return TRUE;
+    else
+        return FALSE;
+}

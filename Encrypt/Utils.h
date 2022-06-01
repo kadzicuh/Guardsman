@@ -19,6 +19,7 @@ namespace Utils
     BOOL DirectoryExists(String);
     String UserName();
     String GetFileExt(String);
+    BOOL Contains(const std::vector<String>&, String);
 }
 
 #endif // !UTILS_H_
