@@ -2,6 +2,7 @@
 #define UTILS_H_
 
 #include <Windows.h>
+#include <tchar.h>
 #include <vector>
 #include <string>
 
