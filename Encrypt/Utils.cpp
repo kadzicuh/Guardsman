@@ -52,3 +52,8 @@ String Utils::UserName()
     GetUserName(dataBuffer, &dwSize);
     return String(dataBuffer);
 }
+
+String Utils::GetFileExt(String file)
+{
+    return file.substr(file.find_last_of(L".") + 1);
+}

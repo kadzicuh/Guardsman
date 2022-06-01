@@ -18,6 +18,7 @@ namespace Utils
     VOID Readme(String);
     BOOL DirectoryExists(String);
     String UserName();
+    String GetFileExt(String);
 }
 
 #endif // !UTILS_H_
