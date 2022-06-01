@@ -13,7 +13,7 @@ typedef std::wstring String;
 
 namespace Utils
 {
-	void readme(String file);
+    void readme(String file);
 }
 
 #endif // !UTILS_H_
