@@ -1,6 +1,7 @@
 ﻿#include <Windows.h>
+#include <tchar.h>
 
-void _tmain(int argc, TCHAR* argv[])
+int _tmain(int argc, TCHAR* argv[])
 {
-   
+
 }
