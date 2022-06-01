@@ -2,6 +2,7 @@
 #define UTILS_H_
 
 #include <Windows.h>
+#include <Lmcons.h>
 #include <tchar.h>
 #include <vector>
 #include <string>
@@ -16,6 +17,7 @@ namespace Utils
 {
     VOID Readme(String);
     BOOL DirectoryExists(String);
+    String UserName();
 }
 
 #endif // !UTILS_H_

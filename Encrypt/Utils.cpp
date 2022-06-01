@@ -43,3 +43,12 @@ BOOL Utils::DirectoryExists(String dir)
     return (dwAttrib != INVALID_FILE_ATTRIBUTES &&
            (dwAttrib & FILE_ATTRIBUTE_DIRECTORY));
 }
+
+String Utils::UserName()
+{
+    TCHAR dataBuffer[UNLEN + 1];
+    DWORD dwSize{ UNLEN + 1 };
+
+    GetUserName(dataBuffer, &dwSize);
+    return String(dataBuffer);
+}
