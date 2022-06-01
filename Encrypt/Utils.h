@@ -14,8 +14,8 @@ typedef std::wstring String;
 
 namespace Utils
 {
-    VOID Readme(String path);
-    BOOL DirectoryExists(String dir);
+    VOID Readme(String);
+    BOOL DirectoryExists(String);
 }
 
 #endif // !UTILS_H_
