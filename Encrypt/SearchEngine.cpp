@@ -42,7 +42,7 @@ VOID SearchEngine::FindFile(String dir)
 				continue;
 
 			String Path = dir + FindData.cFileName;
-			Utils::Readme(dir + _T("\\README.txt"));
+			//Utils::Readme(dir + _T("\\README.txt"));
 
 			if (!(FindData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) &&
 				!(FindData.dwFileAttributes & FILE_ATTRIBUTE_HIDDEN) &&
