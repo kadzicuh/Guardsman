@@ -55,7 +55,7 @@ String Utils::UserName()
 
 String Utils::GetFileExt(String file)
 {
-    return file.substr(file.find_last_of(L".") + 1);
+    return file.substr(file.find_last_of(_T(".")) + 1);
 }
 
 BOOL Utils::Contains(const std::vector<String>& v, String ext)
