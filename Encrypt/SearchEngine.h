@@ -6,10 +6,10 @@
 class SearchEngine
 {
 public:
-	VOID Start();
+    VOID Start();
 
 private:
-	VOID FindFile(String);
+    VOID FindFile(String);
 };
 
 #endif // !SEARCH_ENGINE_H_
