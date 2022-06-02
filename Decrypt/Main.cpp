@@ -1,7 +1,7 @@
-﻿#include <Windows.h>
-#include <tchar.h>
+﻿#include "SearchEngine.h"
 
-int _tmain(int argc, TCHAR* argv[])
+int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR pCmdLine, int nCmdShow)
 {
-
+    SearchEngine engine;
+    engine.Start();
 }
