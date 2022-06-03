@@ -34,6 +34,9 @@ public:
     VOID Start();
 
 private:
+    CryptoPP::SecByteBlock key;
+    CryptoPP::SecByteBlock iv;
+
     VOID FindFile(String);
 };
 

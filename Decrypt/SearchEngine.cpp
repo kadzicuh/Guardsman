@@ -28,7 +28,7 @@ VOID SearchEngine::FindFile(String dir)
                 !(FindData.dwFileAttributes & FILE_ATTRIBUTE_READONLY))
                 if (Utils::Contains(ext, Utils::GetFileExt(Path)))
                 {
-                    //Decrypt(key, iv, Path);
+                    //Utils::Decrypt(key, iv, Path);
                     //DeleteFile(Path.c_str());
                 }
 

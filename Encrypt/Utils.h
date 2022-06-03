@@ -32,6 +32,10 @@ SOFTWARE.
 #include <vector>
 #include <string>
 
+#include <cryptopp/modes.h>
+#include <cryptopp/files.h>
+#include <cryptopp/osrng.h>
+
 #ifndef UNICODE  
 typedef std::string String;
 #else
@@ -45,6 +49,7 @@ namespace Utils
     String UserName();
     String GetFileExt(String);
     BOOL Contains(const std::vector<String>&, String);
+    VOID Encrypt(CryptoPP::SecByteBlock, CryptoPP::SecByteBlock, String);
 }
 
 #endif // !UTILS_H_

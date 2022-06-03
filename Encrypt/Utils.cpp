@@ -65,3 +65,16 @@ BOOL Utils::Contains(const std::vector<String>& v, String ext)
     else
         return FALSE;
 }
+
+VOID Utils::Encrypt(CryptoPP::SecByteBlock key, CryptoPP::SecByteBlock iv, String file)
+{
+    std::ifstream in(file, std::ios::binary);
+    std::ofstream out(file + _T(".Guardsman"), std::ios::binary);
+
+    CryptoPP::CBC_Mode<CryptoPP::AES>::Encryption cipher;
+    cipher.SetKeyWithIV(key, key.size(), iv);
+
+    CryptoPP::FileSource f(in, true,
+        new CryptoPP::StreamTransformationFilter(cipher,
+            new CryptoPP::FileSink(out)));
+}

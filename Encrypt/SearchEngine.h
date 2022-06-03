@@ -32,8 +32,13 @@ class SearchEngine
 {
 public:
     VOID Start();
+    SearchEngine();
 
 private:
+    CryptoPP::AutoSeededRandomPool prng;
+    CryptoPP::SecByteBlock key;
+    CryptoPP::SecByteBlock iv;
+
     VOID FindFile(String);
 };
 

