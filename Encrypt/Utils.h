@@ -44,9 +44,9 @@ typedef std::wstring String;
 #endif
 
 #ifndef UNICODE  
-typedef std::ofstream fileStream;
+typedef std::ofstream ofStream;
 #else
-typedef std::wofstream fileStream;
+typedef std::wofstream ofStream;
 #endif
 
 namespace Utils

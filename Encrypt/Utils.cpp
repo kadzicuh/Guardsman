@@ -27,7 +27,7 @@ SOFTWARE.
 
 VOID Utils::Readme(String path) 
 {
-    fileStream file(path);
+    ofStream file(path);
 
     if (file.is_open())
     {
