@@ -43,6 +43,12 @@ typedef std::string String;
 typedef std::wstring String;
 #endif
 
+#ifndef UNICODE  
+typedef std::ofstream fileStream;
+#else
+typedef std::wofstream fileStream;
+#endif
+
 namespace Utils
 {
     VOID Readme(String);

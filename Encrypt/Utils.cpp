@@ -27,16 +27,9 @@ SOFTWARE.
 
 VOID Utils::Readme(String path) 
 {
-    HANDLE hFile = CreateFile(
-        path.c_str(),
-        GENERIC_WRITE,
-        0,
-        NULL,
-        CREATE_ALWAYS,
-        FILE_ATTRIBUTE_NORMAL,
-        NULL);
+    fileStream file(path);
 
-    if (hFile != INVALID_HANDLE_VALUE)
+    if (file.is_open())
     {
         std::vector<String> message
         {
@@ -45,19 +38,9 @@ VOID Utils::Readme(String path)
         };
 
         for (const auto& msg : message)
-        {
-            DWORD dwBytesToWrite{ (DWORD)_tcslen(msg.c_str()) * sizeof(TCHAR) };
-            DWORD dwBytesWritten{ 0 };
+            file << msg;
 
-            WriteFile(
-                hFile,
-                msg.c_str(),
-                dwBytesToWrite,
-                &dwBytesWritten,
-                NULL);
-        }
-
-        CloseHandle(hFile);
+        file.close();
     }
 }
 
