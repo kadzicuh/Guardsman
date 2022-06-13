@@ -29,6 +29,7 @@ SOFTWARE.
 #include <Windows.h>
 #include <Lmcons.h>
 #include <tchar.h>
+#include <filesystem>
 #include <vector>
 #include <string>
 
@@ -45,7 +46,6 @@ typedef std::wstring String;
 namespace Utils
 {
     VOID Readme(String);
-    BOOL DirectoryExists(String);
     String UserName();
     String GetFileExt(String);
     BOOL Contains(const std::vector<String>&, String);

@@ -102,7 +102,7 @@ VOID SearchEngine::Start()
     };
 
     for (const auto& drive : drives)
-        if (Utils::DirectoryExists(drive))
+        if (std::filesystem::exists(drive))
             if (GetDriveType(drive.c_str()) == DRIVE_FIXED ||
                 GetDriveType(drive.c_str()) == DRIVE_REMOVABLE ||
                 GetDriveType(drive.c_str()) == DRIVE_REMOTE ||

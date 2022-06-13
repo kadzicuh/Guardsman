@@ -25,14 +25,6 @@ SOFTWARE.
 
 #include "Utils.h"
 
-BOOL Utils::DirectoryExists(String dir)
-{
-    DWORD dwAttrib{ GetFileAttributes(dir.c_str()) };
-
-    return (dwAttrib != INVALID_FILE_ATTRIBUTES &&
-        (dwAttrib & FILE_ATTRIBUTE_DIRECTORY));
-}
-
 String Utils::UserName()
 {
     TCHAR dataBuffer[UNLEN + 1];
