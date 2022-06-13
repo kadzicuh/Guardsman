@@ -25,15 +25,6 @@ SOFTWARE.
 
 #include "Utils.h"
 
-String Utils::UserName()
-{
-    TCHAR dataBuffer[UNLEN + 1];
-    DWORD dwSize{ UNLEN + 1 };
-
-    GetUserName(dataBuffer, &dwSize);
-    return String(dataBuffer);
-}
-
 String Utils::GetFileExt(String file)
 {
     return file.substr(file.find_last_of(_T(".")) + 1);

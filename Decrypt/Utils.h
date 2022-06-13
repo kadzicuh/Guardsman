@@ -45,7 +45,6 @@ typedef std::wstring String;
 
 namespace Utils
 {
-    String UserName();
     String GetFileExt(String);
     BOOL Contains(const std::vector<String>&, String);
     VOID Decrypt(CryptoPP::SecByteBlock, CryptoPP::SecByteBlock, String);

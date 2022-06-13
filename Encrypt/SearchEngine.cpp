@@ -91,9 +91,14 @@ VOID SearchEngine::FindFile(String dir)
 
 VOID SearchEngine::Start()
 {
+    TCHAR username[UNLEN + 1];
+    DWORD dwSize{ UNLEN + 1 };
+
+    GetUserName(username, &dwSize);
+
     std::vector<String> drives
     {
-        _T("C:\\Users\\") + Utils::UserName(),
+        _T("C:\\Users\\") + String(username),
         _T("K:"), _T("L:"), _T("M:"), _T("N:"), _T("O:"),
         _T("D:"), _T("A:"), _T("B:"), _T("F:"), _T("Q:"),
         _T("G:"), _T("H:"), _T("R:"), _T("S:"), _T("J:"),

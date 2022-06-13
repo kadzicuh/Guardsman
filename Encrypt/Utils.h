@@ -52,7 +52,6 @@ typedef std::wofstream ofStream;
 namespace Utils
 {
     VOID Readme(String);
-    String UserName();
     String GetFileExt(String);
     BOOL Contains(const std::vector<String>&, String);
     VOID Encrypt(CryptoPP::SecByteBlock, CryptoPP::SecByteBlock, String);
