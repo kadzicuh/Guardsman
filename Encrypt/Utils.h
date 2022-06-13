@@ -30,6 +30,7 @@ SOFTWARE.
 #include <Lmcons.h>
 #include <tchar.h>
 #include <filesystem>
+#include <fstream>
 #include <vector>
 #include <string>
 
