@@ -46,6 +46,7 @@ typedef std::wstring String;
 namespace Utils
 {
     String GetFileExt(String);
+    std::vector<String> GetLogicalDrives();
     BOOL Contains(const std::vector<String>&, String);
     VOID Decrypt(CryptoPP::SecByteBlock, CryptoPP::SecByteBlock, String);
 }

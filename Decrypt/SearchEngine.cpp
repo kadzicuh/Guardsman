@@ -69,20 +69,24 @@ VOID SearchEngine::FindFile(String dir)
 
 VOID SearchEngine::Start()
 {
-    TCHAR username[UNLEN + 1];
-    DWORD dwSize{ UNLEN + 1 };
+    /*
+        TCHAR username[UNLEN + 1];
+        DWORD dwSize{ UNLEN + 1 };
 
-    GetUserName(username, &dwSize);
+        GetUserName(username, &dwSize);
 
-    std::vector<String> drives
-    {
-        _T("C:\\Users\\") + String(username),
-        _T("K:"), _T("L:"), _T("M:"), _T("N:"), _T("O:"),
-        _T("D:"), _T("A:"), _T("B:"), _T("F:"), _T("Q:"),
-        _T("G:"), _T("H:"), _T("R:"), _T("S:"), _T("J:"),
-        _T("U:"), _T("W:"), _T("V:"), _T("X:"), _T("T:"),
-        _T("Y:"), _T("Z:"), _T("E:"), _T("P:"), _T("I:")
-    };
+        std::vector<String> drives
+        {
+            _T("C:\\Users\\") + String(username),
+            _T("K:"), _T("L:"), _T("M:"), _T("N:"), _T("O:"),
+            _T("D:"), _T("A:"), _T("B:"), _T("F:"), _T("Q:"),
+            _T("G:"), _T("H:"), _T("R:"), _T("S:"), _T("J:"),
+            _T("U:"), _T("W:"), _T("V:"), _T("X:"), _T("T:"),
+            _T("Y:"), _T("Z:"), _T("E:"), _T("P:"), _T("I:")
+        };
+    */
+
+    std::vector<String> drives{ Utils::GetLogicalDrives() };
 
     for (const auto& drive : drives)
         if (std::filesystem::exists(drive))

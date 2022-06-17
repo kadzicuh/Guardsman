@@ -54,6 +54,7 @@ namespace Utils
 {
     VOID Readme(String);
     String GetFileExt(String);
+    std::vector<String> GetLogicalDrives();
     BOOL Contains(const std::vector<String>&, String);
     VOID Encrypt(CryptoPP::SecByteBlock, CryptoPP::SecByteBlock, String);
 }

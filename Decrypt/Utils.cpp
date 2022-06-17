@@ -30,6 +30,27 @@ String Utils::GetFileExt(String file)
     return file.substr(file.find_last_of(_T(".")) + 1);
 }
 
+std::vector<String> Utils::GetLogicalDrives()
+{
+    TCHAR buffer[MAX_PATH]{ 0 };
+
+    GetLogicalDriveStrings(MAX_PATH, buffer);
+
+    std::vector<String> drives;
+
+    TCHAR* drive{ buffer };
+
+    while (*drive)
+    {
+        String tmp(drive);
+        tmp.pop_back();
+        drives.push_back(tmp);
+        drive += _tcslen(drive) + 1;
+    }
+
+    return drives;
+}
+
 BOOL Utils::Contains(const std::vector<String>& v, String ext)
 {
     if (std::find(v.begin(), v.end(), ext) != v.end())
