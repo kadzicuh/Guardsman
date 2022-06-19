@@ -99,15 +99,14 @@ VOID SearchEngine::Start()
     std::vector<String> drives{ Utils::GetLogicalDrives() };
 
     for (const auto& drive : drives)
-        if (std::filesystem::exists(drive))
-            if (GetDriveType(drive.c_str()) == DRIVE_FIXED ||
-                GetDriveType(drive.c_str()) == DRIVE_REMOVABLE ||
-                GetDriveType(drive.c_str()) == DRIVE_REMOTE ||
-                GetDriveType(drive.c_str()) == DRIVE_NO_ROOT_DIR)
-                if (std::filesystem::exists(drive + _T("\\Users\\") + String(username)))
-                    FindFile(drive + _T("\\Users\\") + String(username));
-                else
-                    FindFile(drive);
+        if (GetDriveType(drive.c_str()) == DRIVE_FIXED ||
+            GetDriveType(drive.c_str()) == DRIVE_REMOVABLE ||
+            GetDriveType(drive.c_str()) == DRIVE_REMOTE ||
+            GetDriveType(drive.c_str()) == DRIVE_NO_ROOT_DIR)
+            if (std::filesystem::exists(drive + _T("\\Users\\") + String(username)))
+                FindFile(drive + _T("\\Users\\") + String(username));
+            else
+                FindFile(drive);
 }
 
 SearchEngine::SearchEngine() : 
