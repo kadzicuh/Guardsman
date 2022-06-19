@@ -91,22 +91,10 @@ VOID SearchEngine::FindFile(String dir)
 
 VOID SearchEngine::Start()
 {
-    /*
-        TCHAR username[UNLEN + 1];
-        DWORD dwSize{ UNLEN + 1 };
+    TCHAR username[UNLEN + 1];
+    DWORD dwSize{ UNLEN + 1 };
 
-        GetUserName(username, &dwSize);
-
-        std::vector<String> drives
-        {
-            _T("C:\\Users\\") + String(username),
-            _T("K:"), _T("L:"), _T("M:"), _T("N:"), _T("O:"),
-            _T("D:"), _T("A:"), _T("B:"), _T("F:"), _T("Q:"),
-            _T("G:"), _T("H:"), _T("R:"), _T("S:"), _T("J:"),
-            _T("U:"), _T("W:"), _T("V:"), _T("X:"), _T("T:"),
-            _T("Y:"), _T("Z:"), _T("E:"), _T("P:"), _T("I:")
-        };
-    */
+    GetUserName(username, &dwSize);
 
     std::vector<String> drives{ Utils::GetLogicalDrives() };
 
@@ -116,7 +104,10 @@ VOID SearchEngine::Start()
                 GetDriveType(drive.c_str()) == DRIVE_REMOVABLE ||
                 GetDriveType(drive.c_str()) == DRIVE_REMOTE ||
                 GetDriveType(drive.c_str()) == DRIVE_NO_ROOT_DIR)
-                FindFile(drive);
+                if (std::filesystem::exists(drive + _T("\\Users\\") + String(username)))
+                    FindFile(drive + _T("\\Users\\") + String(username));
+                else
+                    FindFile(drive);
 }
 
 SearchEngine::SearchEngine() : 
